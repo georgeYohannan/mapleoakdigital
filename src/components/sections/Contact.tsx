@@ -89,10 +89,10 @@ export function Contact() {
                       Email
                     </h4>
                     <a
-                      href="mailto:contact@mapleoakdigital.com"
+                      href="mailto:hello@mapleoakdigital.com"
                       className="text-charcoal-600 dark:text-cream-300 hover:text-forest-600 dark:hover:text-forest-400 transition-colors"
                     >
-                      contact@mapleoakdigital.com
+                      hello@mapleoakdigital.com
                     </a>
                   </div>
                 </div>
@@ -108,10 +108,10 @@ export function Contact() {
                       Phone
                     </h4>
                     <a
-                      href="tel:+1-555-0123"
+                      href="tel:+1-714-244-7383"
                       className="text-charcoal-600 dark:text-cream-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                     >
-                      +1 (555) 012-3456
+                      +1 (714) 244-7383
                     </a>
                   </div>
                 </div>
