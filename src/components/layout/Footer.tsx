@@ -1,5 +1,6 @@
 import { Heart, Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { scrollToSection } from '../../lib/utils';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const footerLinks = {
   products: [
@@ -29,6 +30,7 @@ const socialLinks = [
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
 
   const handleLinkClick = (href: string) => {
     if (href.startsWith('#')) {
@@ -44,9 +46,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <img
-                src="/untitled_design.png"
+                src={theme === 'dark' ? '/maple_oak_digital_dark_.png' : '/untitled_design.png'}
                 alt="MapleOakDigital"
-                className="h-14 w-auto"
+                className="h-14 w-auto transition-opacity duration-300"
               />
             </div>
             <p className="text-cream-300 mb-6 max-w-md">

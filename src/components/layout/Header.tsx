@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { Button } from '../common/Button';
 import { scrollToSection } from '../../lib/utils';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const navLinks = [
   { name: 'Home', href: 'hero' },
@@ -16,6 +17,7 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,9 +45,9 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
             <img
-              src="/untitled_design.png"
+              src={theme === 'dark' ? '/maple_oak_digital_dark_.png' : '/untitled_design.png'}
               alt="MapleOakDigital"
-              className="h-16 w-auto"
+              className="h-16 w-auto transition-opacity duration-300"
             />
           </div>
 
