@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import nodemailer from "npm:nodemailer@6.9.8";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -30,62 +31,25 @@ async function sendEmailViaSMTP(
     throw new Error("Email service not configured");
   }
 
-  const boundary = `----=_Part_${Date.now()}`;
-
-  const emailBody = [
-    `From: ${from}`,
-    `To: ${to}`,
-    `Reply-To: ${replyTo}`,
-    `Subject: ${subject}`,
-    `MIME-Version: 1.0`,
-    `Content-Type: multipart/alternative; boundary="${boundary}"`,
-    ``,
-    `--${boundary}`,
-    `Content-Type: text/html; charset=UTF-8`,
-    `Content-Transfer-Encoding: 7bit`,
-    ``,
-    html,
-    ``,
-    `--${boundary}--`,
-  ].join("\r\n");
-
-  const credentials = btoa(`${smtpUser}:${smtpPass}`);
-
   try {
-    const conn = await Deno.connect({
-      hostname: smtpHost,
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
       port: parseInt(smtpPort),
+      secure: parseInt(smtpPort) === 465,
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
     });
 
-    const encoder = new TextEncoder();
-    const decoder = new TextDecoder();
+    await transporter.sendMail({
+      from: from,
+      to: to,
+      replyTo: replyTo,
+      subject: subject,
+      html: html,
+    });
 
-    async function readResponse(): Promise<string> {
-      const buffer = new Uint8Array(1024);
-      const n = await conn.read(buffer);
-      if (n === null) return "";
-      return decoder.decode(buffer.subarray(0, n));
-    }
-
-    async function sendCommand(command: string): Promise<string> {
-      await conn.write(encoder.encode(command + "\r\n"));
-      return await readResponse();
-    }
-
-    await readResponse();
-
-    await sendCommand(`EHLO ${smtpHost}`);
-    await sendCommand(`AUTH LOGIN`);
-    await sendCommand(btoa(smtpUser));
-    await sendCommand(btoa(smtpPass));
-    await sendCommand(`MAIL FROM:<${smtpUser}>`);
-    await sendCommand(`RCPT TO:<${to}>`);
-    await sendCommand(`DATA`);
-    await conn.write(encoder.encode(emailBody + "\r\n.\r\n"));
-    await readResponse();
-    await sendCommand(`QUIT`);
-
-    conn.close();
     return true;
   } catch (error) {
     console.error("SMTP error:", error);
