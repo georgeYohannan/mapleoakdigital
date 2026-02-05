@@ -46,7 +46,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <img
-                src={theme === 'dark' ? '/maple_oak_digital_dark_.png' : '/untitled_design.png'}
+                src={theme === 'dark' ? '/maple_oak_digital_darkmode_.png' : '/untitled_design.png'}
                 alt="MapleOakDigital"
                 className="h-14 w-auto transition-opacity duration-300"
               />

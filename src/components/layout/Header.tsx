@@ -45,7 +45,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
             <img
-              src={theme === 'dark' ? '/maple_oak_digital_dark_.png' : '/untitled_design.png'}
+              src={theme === 'dark' ? '/maple_oak_digital_darkmode_.png' : '/untitled_design.png'}
               alt="MapleOakDigital"
               className="h-16 w-auto transition-opacity duration-300"
             />
