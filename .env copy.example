@@ -1,9 +1,0 @@
-# Supabase Configuration (if integrating backend)
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-# Form Submission Endpoint (FormSubmit.co or similar)
-VITE_FORM_ENDPOINT=https://formsubmit.co/your-email@example.com
-
-# Newsletter Subscription Service (optional)
-VITE_NEWSLETTER_ENDPOINT=your_newsletter_service_endpoint
