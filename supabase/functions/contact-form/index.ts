@@ -13,6 +13,86 @@ interface ContactFormData {
   message: string;
 }
 
+async function sendEmailViaSMTP(
+  to: string,
+  from: string,
+  replyTo: string,
+  subject: string,
+  html: string
+): Promise<boolean> {
+  const smtpHost = Deno.env.get("SMTP_HOST");
+  const smtpPort = Deno.env.get("SMTP_PORT");
+  const smtpUser = Deno.env.get("SMTP_USER");
+  const smtpPass = Deno.env.get("SMTP_PASS");
+
+  if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
+    console.error("SMTP credentials not configured");
+    throw new Error("Email service not configured");
+  }
+
+  const boundary = `----=_Part_${Date.now()}`;
+
+  const emailBody = [
+    `From: ${from}`,
+    `To: ${to}`,
+    `Reply-To: ${replyTo}`,
+    `Subject: ${subject}`,
+    `MIME-Version: 1.0`,
+    `Content-Type: multipart/alternative; boundary="${boundary}"`,
+    ``,
+    `--${boundary}`,
+    `Content-Type: text/html; charset=UTF-8`,
+    `Content-Transfer-Encoding: 7bit`,
+    ``,
+    html,
+    ``,
+    `--${boundary}--`,
+  ].join("\r\n");
+
+  const credentials = btoa(`${smtpUser}:${smtpPass}`);
+
+  try {
+    const conn = await Deno.connect({
+      hostname: smtpHost,
+      port: parseInt(smtpPort),
+    });
+
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+
+    async function readResponse(): Promise<string> {
+      const buffer = new Uint8Array(1024);
+      const n = await conn.read(buffer);
+      if (n === null) return "";
+      return decoder.decode(buffer.subarray(0, n));
+    }
+
+    async function sendCommand(command: string): Promise<string> {
+      await conn.write(encoder.encode(command + "\r\n"));
+      return await readResponse();
+    }
+
+    await readResponse();
+
+    await sendCommand(`EHLO ${smtpHost}`);
+    await sendCommand(`AUTH LOGIN`);
+    await sendCommand(btoa(smtpUser));
+    await sendCommand(btoa(smtpPass));
+    await sendCommand(`MAIL FROM:<${smtpUser}>`);
+    await sendCommand(`RCPT TO:<${to}>`);
+    await sendCommand(`DATA`);
+    await conn.write(encoder.encode(emailBody + "\r\n.\r\n"));
+    await readResponse();
+    await sendCommand(`QUIT`);
+
+    conn.close();
+    return true;
+  } catch (error) {
+    console.error("SMTP error:", error);
+    throw error;
+  }
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
     return new Response(null, {
@@ -36,7 +116,6 @@ Deno.serve(async (req: Request) => {
     }
 
     const formData: ContactFormData = await req.json();
-
     const { name, email, subject, message } = formData;
 
     if (!name || !email || !subject || !message) {
@@ -52,65 +131,63 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    const recipientEmail = Deno.env.get("RECIPIENT_EMAIL") || "hello@mapleoakdigital.com";
+    const senderEmail = Deno.env.get("SMTP_USER") || "noreply@mapleoakdigital.com";
 
-    if (!resendApiKey) {
-      console.error("RESEND_API_KEY not configured");
-      return new Response(
-        JSON.stringify({ error: "Email service not configured" }),
-        {
-          status: 500,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    }
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background-color: #2c5530; color: white; padding: 20px; text-align: center; }
+          .content { background-color: #f9f9f9; padding: 20px; }
+          .field { margin-bottom: 15px; }
+          .label { font-weight: bold; color: #2c5530; }
+          .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h2>New Contact Form Submission</h2>
+          </div>
+          <div class="content">
+            <div class="field">
+              <span class="label">From:</span> ${name}
+            </div>
+            <div class="field">
+              <span class="label">Email:</span> ${email}
+            </div>
+            <div class="field">
+              <span class="label">Subject:</span> ${subject}
+            </div>
+            <div class="field">
+              <span class="label">Message:</span>
+              <p>${message.replace(/\n/g, "<br>")}</p>
+            </div>
+          </div>
+          <div class="footer">
+            This email was sent from the MapleOak Digital contact form
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
 
-    const emailResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${resendApiKey}`,
-      },
-      body: JSON.stringify({
-        from: "MapleOak Digital <onboarding@resend.dev>",
-        to: ["hello@mapleoakdigital.com"],
-        reply_to: email,
-        subject: `Contact Form: ${subject}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>From:</strong> ${name} (${email})</p>
-          <p><strong>Subject:</strong> ${subject}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, "<br>")}</p>
-        `,
-      }),
-    });
-
-    if (!emailResponse.ok) {
-      const error = await emailResponse.text();
-      console.error("Resend API error:", error);
-      return new Response(
-        JSON.stringify({ error: "Failed to send email" }),
-        {
-          status: 500,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    }
-
-    const result = await emailResponse.json();
+    await sendEmailViaSMTP(
+      recipientEmail,
+      `MapleOak Digital <${senderEmail}>`,
+      email,
+      `Contact Form: ${subject}`,
+      htmlContent
+    );
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Email sent successfully",
-        id: result.id
+        message: "Email sent successfully"
       }),
       {
         status: 200,
@@ -124,7 +201,7 @@ Deno.serve(async (req: Request) => {
     console.error("Contact form error:", error);
     return new Response(
       JSON.stringify({
-        error: "An unexpected error occurred",
+        error: "Failed to send email",
         details: error instanceof Error ? error.message : "Unknown error"
       }),
       {
