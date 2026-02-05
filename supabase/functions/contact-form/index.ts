@@ -16,23 +16,28 @@ interface ContactFormData {
 }
 
 async function sendEmail(formData: ContactFormData) {
-  const client = new SMTPClient({
-    connection: {
-      hostname: "smtp.hostinger.com",
-      port: 587,
-      tls: true,
-      auth: {
-        username: "hello@mapleoakdigital.com",
-        password: "Mapl@OakDigita1",
-      },
-    },
-  });
+  console.log("Attempting to send email...");
 
-  await client.send({
-    from: "hello@mapleoakdigital.com",
-    to: "hello@mapleoakdigital.com",
-    subject: `New Contact Form: ${formData.subject}`,
-    content: `
+  try {
+    const client = new SMTPClient({
+      connection: {
+        hostname: "smtp.hostinger.com",
+        port: 587,
+        tls: true,
+        auth: {
+          username: "hello@mapleoakdigital.com",
+          password: "Mapl@OakDigita1",
+        },
+      },
+    });
+
+    console.log("SMTP client created, sending email...");
+
+    await client.send({
+      from: "hello@mapleoakdigital.com",
+      to: "hello@mapleoakdigital.com",
+      subject: `New Contact Form: ${formData.subject}`,
+      content: `
 New contact form submission:
 
 Name: ${formData.name}
@@ -44,10 +49,16 @@ ${formData.message}
 
 ---
 Submitted at: ${new Date().toLocaleString()}
-    `,
-  });
+Reply to: ${formData.email}
+      `,
+    });
 
-  await client.close();
+    console.log("Email sent successfully");
+    await client.close();
+  } catch (error) {
+    console.error("Detailed email error:", error);
+    throw error;
+  }
 }
 
 Deno.serve(async (req: Request) => {
