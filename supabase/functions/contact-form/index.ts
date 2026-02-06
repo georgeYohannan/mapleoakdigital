@@ -1,6 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "npm:@supabase/supabase-js@2.57.4";
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,52 +12,6 @@ interface ContactFormData {
   email: string;
   subject: string;
   message: string;
-}
-
-async function sendEmail(formData: ContactFormData) {
-  console.log("Attempting to send email...");
-
-  try {
-    const client = new SMTPClient({
-      connection: {
-        hostname: "smtp.hostinger.com",
-        port: 587,
-        tls: true,
-        auth: {
-          username: "hello@mapleoakdigital.com",
-          password: "Mapl@OakDigita1",
-        },
-      },
-    });
-
-    console.log("SMTP client created, sending email...");
-
-    await client.send({
-      from: "hello@mapleoakdigital.com",
-      to: "hello@mapleoakdigital.com",
-      subject: `New Contact Form: ${formData.subject}`,
-      content: `
-New contact form submission:
-
-Name: ${formData.name}
-Email: ${formData.email}
-Subject: ${formData.subject}
-
-Message:
-${formData.message}
-
----
-Submitted at: ${new Date().toLocaleString()}
-Reply to: ${formData.email}
-      `,
-    });
-
-    console.log("Email sent successfully");
-    await client.close();
-  } catch (error) {
-    console.error("Detailed email error:", error);
-    throw error;
-  }
 }
 
 Deno.serve(async (req: Request) => {
@@ -118,16 +71,12 @@ Deno.serve(async (req: Request) => {
       throw new Error("Failed to save submission");
     }
 
-    try {
-      await sendEmail(formData);
-    } catch (emailError) {
-      console.error("Email error:", emailError);
-    }
+    console.log("Contact submission saved successfully");
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Message sent successfully"
+        message: "Message received successfully. We'll get back to you within 24 hours."
       }),
       {
         status: 200,
