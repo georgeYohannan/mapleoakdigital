@@ -58,15 +58,12 @@ export function Demo() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-amber-100 dark:bg-amber-900/30 px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-amber-100 dark:bg-amber-900/30 px-4 py-2 rounded-full mb-4">
             <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />
             <span className="text-sm font-medium text-amber-700 dark:text-amber-300">
               Interactive Demo
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-charcoal-950 dark:text-cream-100 mb-6">
-            Try Memorial Video Generator
-          </h2>
           <p className="text-xl text-charcoal-600 dark:text-cream-300 max-w-3xl mx-auto">
             Experience how easy it is to create a beautiful tribute in just a few simple steps.
           </p>
@@ -181,7 +178,7 @@ export function Demo() {
                   transition={{ duration: 0.3 }}
                   className="space-y-6"
                 >
-                  <h3 className="text-2xl font-bold text-charcoal-900 dark:text-cream-50 mb-6">
+                  <h3 className="text-2xl font-serif font-bold text-charcoal-900 dark:text-cream-50 mb-6">
                     Add Personal Details
                   </h3>
 
@@ -257,7 +254,7 @@ export function Demo() {
                   {isGenerating ? (
                     <div className="text-center py-12">
                       <Loader2 className="w-16 h-16 mx-auto mb-6 text-forest-600 dark:text-forest-400 animate-spin" />
-                      <h3 className="text-2xl font-bold text-charcoal-900 dark:text-cream-50 mb-3">
+                      <h3 className="text-2xl font-serif font-bold text-charcoal-900 dark:text-cream-50 mb-3">
                         Creating Your Memorial Video
                       </h3>
                       <p className="text-charcoal-600 dark:text-cream-300">
@@ -268,7 +265,7 @@ export function Demo() {
                     <div className="space-y-6">
                       <div className="text-center">
                         <CheckCircle className="w-16 h-16 mx-auto mb-4 text-forest-600 dark:text-forest-400" />
-                        <h3 className="text-2xl font-bold text-charcoal-900 dark:text-cream-50 mb-3">
+                        <h3 className="text-2xl font-serif font-bold text-charcoal-900 dark:text-cream-50 mb-3">
                           Your Memorial Video Preview
                         </h3>
                       </div>

@@ -48,13 +48,13 @@ export function About() {
       <Section className="pt-32 pb-16 hero-gradient dark:hero-gradient-dark">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 text-primary dark:text-cream">
+            <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 text-primary dark:text-cream-100">
               About Maple Oak Digital
             </h1>
-            <p className="text-xl text-charcoal-600 dark:text-cream-300 leading-relaxed mb-8">
+            <p className="text-xl text-charcoal-600 dark:text-cream-100-300 leading-relaxed mb-8">
               Innovation with Heart
             </p>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 leading-relaxed">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
               We believe technology should serve humanity's deepest needs. That's why we've dedicated
               ourselves to creating tools that help families honor, remember, and celebrate the lives
               of those they love.
@@ -68,10 +68,10 @@ export function About() {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-4xl font-bold font-display mb-6 text-primary dark:text-cream">
+                <h2 className="text-4xl font-bold font-display mb-6 text-primary dark:text-cream-100">
                   Our Story
                 </h2>
-                <div className="space-y-4 text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                <div className="space-y-4 text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                   <p>
                     Maple Oak Digital was born from a simple observation: while technology had transformed
                     nearly every aspect of our lives, the way we honor and remember loved ones had remained
@@ -91,18 +91,18 @@ export function About() {
                 </div>
               </div>
               <div className="bg-accent/10 dark:bg-accent/5 rounded-2xl p-8 border border-accent/30">
-                <h3 className="text-2xl font-bold font-display mb-6 text-primary dark:text-cream text-center">
+                <h3 className="text-2xl font-bold font-display mb-6 text-primary dark:text-cream-100 text-center">
                   Our Mission
                 </h3>
-                <p className="text-lg text-charcoal-600 dark:text-cream-300 text-center leading-relaxed mb-6">
+                <p className="text-lg text-charcoal-600 dark:text-cream-100-300 text-center leading-relaxed mb-6">
                   To empower families to celebrate and preserve the memories of their loved ones through
                   innovative, accessible, and respectful AI technology.
                 </p>
                 <div className="h-px bg-accent/30 my-6"></div>
-                <h3 className="text-2xl font-bold font-display mb-6 text-primary dark:text-cream text-center">
+                <h3 className="text-2xl font-bold font-display mb-6 text-primary dark:text-cream-100 text-center">
                   Our Vision
                 </h3>
-                <p className="text-lg text-charcoal-600 dark:text-cream-300 text-center leading-relaxed">
+                <p className="text-lg text-charcoal-600 dark:text-cream-100-300 text-center leading-relaxed">
                   A world where every family, regardless of means, can create lasting, meaningful tributes
                   that honor the unique life and legacy of those they love.
                 </p>
@@ -115,10 +115,10 @@ export function About() {
       <Section className="py-16 bg-primary/5 dark:bg-primary/10">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Our Values
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 max-w-2xl mx-auto">
               The principles that guide us every day
             </p>
           </div>
@@ -130,10 +130,10 @@ export function About() {
                 className="bg-white dark:bg-charcoal-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <value.icon className="w-12 h-12 text-accent mb-4" />
-                <h3 className="text-xl font-bold font-display mb-3 text-primary dark:text-cream">
+                <h3 className="text-xl font-bold font-display mb-3 text-primary dark:text-cream-100">
                   {value.title}
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -146,10 +146,10 @@ export function About() {
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+              <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
                 Our Journey
               </h2>
-              <p className="text-lg text-charcoal-600 dark:text-cream-300">
+              <p className="text-lg text-charcoal-600 dark:text-cream-100-300">
                 Key milestones in our mission
               </p>
             </div>
@@ -163,7 +163,7 @@ export function About() {
                       <span className="text-sm font-bold text-accent">{milestone.year}</span>
                     </div>
                     <div className="glass-card-light dark:glass-card p-6 rounded-xl">
-                      <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                      <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                         {milestone.event}
                       </p>
                     </div>
@@ -179,20 +179,20 @@ export function About() {
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+              <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
                 Our Approach
               </h2>
-              <p className="text-lg text-charcoal-600 dark:text-cream-300">
+              <p className="text-lg text-charcoal-600 dark:text-cream-100-300">
                 How we blend technology with compassion
               </p>
             </div>
 
             <div className="space-y-6">
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream">
+                <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream-100">
                   Technology as a Tool, Not a Replacement
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                   We don't believe AI should replace human connection or the grieving process. Instead,
                   our technology serves as a tool to enhance memorial experiences, making them more
                   personal, accessible, and meaningful. We provide the technology; you provide the heart.
@@ -200,10 +200,10 @@ export function About() {
               </div>
 
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream">
+                <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream-100">
                   Ethical AI Development
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                   Every AI model we develop is trained with ethics at the forefront. We use only ethically
                   sourced data, implement rigorous bias testing, and ensure our technology respects the
                   dignity of every individual. We believe innovation must be responsible innovation.
@@ -211,10 +211,10 @@ export function About() {
               </div>
 
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream">
+                <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream-100">
                   Continuous Improvement Through Feedback
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                   We actively listen to the families we serve. Their feedback, suggestions, and stories
                   directly shape our product development. This collaborative approach ensures our tools
                   remain grounded in real needs and meaningful use cases.
@@ -228,10 +228,10 @@ export function About() {
       <Section className="py-16">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl font-bold font-display mb-6 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-6 text-primary dark:text-cream-100">
               Join Us on This Journey
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 mb-8 leading-relaxed">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 mb-8 leading-relaxed">
               Whether you're a family looking to preserve precious memories, a funeral home seeking
               to enhance your services, or a partner who shares our vision, we'd love to hear from you.
             </p>
@@ -244,7 +244,7 @@ export function About() {
               </a>
               <a
                 href="/partners"
-                className="px-8 py-4 bg-white dark:bg-charcoal-900 hover:bg-cream-100 dark:hover:bg-charcoal-800 text-primary dark:text-cream rounded-lg font-semibold transition-colors duration-300 border border-primary/20"
+                className="px-8 py-4 bg-white dark:bg-charcoal-900 hover:bg-cream-100 dark:hover:bg-charcoal-800 text-primary dark:text-cream-100 rounded-lg font-semibold transition-colors duration-300 border border-primary/20"
               >
                 Partner With Us
               </a>

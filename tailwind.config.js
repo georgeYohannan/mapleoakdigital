@@ -5,23 +5,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#1a4231',
-        accent: '#d4a574',
-        cream: '#F8F6F3',
-        'background-light': '#f6f8f7',
+        // Brand Style Guide – MapleOak Digital
+        primary: '#295432',       // Deep Forest Green – Primary Core
+        accent: '#D3A774',         // Warm Amber – Accent Action
+        'rose-gold': '#CE70E8',    // Muted Rose Gold – Secondary Highlight
+        'background-light': '#FBF8F3',  // Soft Cream – Base Surface
         'background-dark': '#151d1a',
         forest: {
-          50: '#f0f7f4',
-          100: '#dceee5',
-          200: '#b9dccb',
-          300: '#8bc4aa',
-          400: '#5ca688',
-          500: '#2d5f4a',
-          600: '#1B4332',
-          700: '#163729',
-          800: '#122b21',
-          900: '#0f2319',
-          950: '#0a1710',
+          50: '#f0f6f1',
+          100: '#dceee2',
+          200: '#b9ddc5',
+          300: '#8bc4a3',
+          400: '#5ca67f',
+          500: '#3d6b4d',
+          600: '#295432',  // Deep Forest Green (Primary Core)
+          700: '#22452a',
+          800: '#1b3622',
+          900: '#14281a',
+          950: '#0a140d',
         },
         amber: {
           50: '#fdf9f4',
@@ -29,7 +30,7 @@ export default {
           200: '#f4e4cc',
           300: '#ead2a8',
           400: '#deb87d',
-          500: '#D4A574',
+          500: '#D3A774',  // Warm Amber (Accent Action)
           600: '#c18e58',
           700: '#a1744a',
           800: '#835e3f',
@@ -37,8 +38,8 @@ export default {
           950: '#39281c',
         },
         cream: {
-          50: '#fdfdfb',
-          100: '#F8F6F3',
+          50: '#fefdfb',
+          100: '#FBF8F3',  // Soft Cream (Base Surface)
           200: '#f3f0eb',
           300: '#ebe6de',
           400: '#dfd7cc',
@@ -50,15 +51,15 @@ export default {
           950: '#362f28',
         },
         rose: {
-          50: '#fdf6f7',
-          100: '#fcedef',
-          200: '#f9dade',
-          300: '#f4bcc2',
-          400: '#ec929c',
-          500: '#de6b78',
-          600: '#B76E79',
-          700: '#9e4f5c',
-          800: '#85434d',
+          50: '#faf5fc',
+          100: '#f3e8f9',
+          200: '#e9d4f4',
+          300: '#dbb5ec',
+          400: '#ce70e8',  // Muted Rose Gold (Secondary Highlight)
+          500: '#CE70E8',
+          600: '#b85dd4',
+          700: '#9e4bb8',
+          800: '#85439a',
           900: '#713c45',
           950: '#3e1d21',
         },
@@ -71,15 +72,20 @@ export default {
           500: '#656d75',
           600: '#565d64',
           700: '#494f54',
-          800: '#404448',
+          800: '#3D4447',  // Oak Charcoal (Text & Link)
           900: '#383b3f',
           950: '#2D3142',
         },
+        // Contact / dark design system (from design mock)
+        'contact-bg': '#18221D',      // Primary dark green background
+        'contact-card': '#222E2B',    // Cards, form fields
+        'contact-accent': '#E9832B',  // Warm orange – CTAs, highlights
+        'contact-mint': '#98B39B',    // Light green – secondary text, icons
       },
       fontFamily: {
-        display: ['Manrope', 'system-ui', 'sans-serif'],
+        display: ['Georgia', 'serif'],
         sans: ['Manrope', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ['Georgia', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',

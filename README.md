@@ -1,5 +1,7 @@
 # MapleOakDigital Website
 
+Standalone project (lives under `cursor/` alongside other repos). Run from this directory.
+
 A premium, modern website for MapleOakDigital showcasing AI-powered memorial videos and digital avatars. Built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion.
 
 ## Features
@@ -67,12 +69,22 @@ src/
 
 ## Customization
 
-### Replacing Placeholder Content
+### Where to provide logos (light & dark mode)
 
-1. **Logo**: Replace `/public/mapleoakdigitallogo.png` with your logo
-2. **Colors**: Update the color palette in `tailwind.config.js`
-3. **Content**: Edit text content in each section component
-4. **Images**: Add images to `/public` and update image references
+Place your logo files in the **`public/`** folder:
+
+| Mode   | File name (exact)                   | Where it appears |
+|--------|-------------------------------------|------------------|
+| **Light** | `mapleoakdigitallogo.png`         | Header and footer in light theme |
+| **Dark**  | `MAPLE_OAK_DIGITAL_darkmode_.png` | Header and footer in dark theme (and header over the hero) |
+
+See **`public/LOGO-PLACEMENT.md`** for step-by-step instructions. No code changes are needed—just add or replace the files and refresh.
+
+### Other customization
+
+1. **Colors**: Update the color palette in `tailwind.config.js`
+2. **Content**: Edit text content in each section component
+3. **Images**: Add images to `/public` and update image references
 
 ### Integrating Backend Services
 

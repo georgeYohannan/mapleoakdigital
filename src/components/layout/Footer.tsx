@@ -57,7 +57,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center mb-4">
               <img
-                src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo.png'}
+                src={theme === 'dark' ? '/maple_oak_digital_darkmode_.png' : '/mapleoakdigitallogo.png'}
                 alt="Maple Oak Digital"
                 className="h-12 w-auto transition-opacity duration-300"
               />
@@ -137,7 +137,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2 text-cream-300">
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
+              <Heart className="w-4 h-4 text-rose-gold fill-rose-gold" />
               <span>by MapleOakDigital</span>
             </div>
 

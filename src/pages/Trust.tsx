@@ -87,10 +87,10 @@ export function Trust() {
       <Section className="pt-32 pb-16">
         <Container>
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 text-primary dark:text-cream">
+            <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 text-primary dark:text-cream-100">
               Trust & Ethics
             </h1>
-            <p className="text-xl text-charcoal-600 dark:text-cream-300 leading-relaxed">
+            <p className="text-xl text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
               Your trust is sacred. We've built Maple Oak Digital on a foundation of transparency,
               security, and respect for your most precious memories.
             </p>
@@ -101,10 +101,10 @@ export function Trust() {
       <Section className="py-16">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Foundational Principles
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 max-w-2xl mx-auto">
               These core values guide every decision we make
             </p>
           </div>
@@ -116,10 +116,10 @@ export function Trust() {
                 className="glass-card-light dark:glass-card p-8 rounded-2xl hover:scale-105 transition-transform duration-300"
               >
                 <principle.icon className="w-12 h-12 text-accent mb-4" />
-                <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream">
+                <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream-100">
                   {principle.title}
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+                <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
                   {principle.description}
                 </p>
               </div>
@@ -131,10 +131,10 @@ export function Trust() {
       <Section className="py-16 bg-primary/5 dark:bg-primary/10">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Data Protection & Security
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 max-w-2xl mx-auto">
               Industry-leading security measures protect your memories
             </p>
           </div>
@@ -146,10 +146,10 @@ export function Trust() {
                 className="bg-white dark:bg-charcoal-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <item.icon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-lg font-bold font-display mb-2 text-primary dark:text-cream">
+                <h3 className="text-lg font-bold font-display mb-2 text-primary dark:text-cream-100">
                   {item.title}
                 </h3>
-                <p className="text-sm text-charcoal-600 dark:text-cream-300">
+                <p className="text-sm text-charcoal-600 dark:text-cream-100-300">
                   {item.description}
                 </p>
               </div>
@@ -157,10 +157,10 @@ export function Trust() {
           </div>
 
           <div className="bg-white dark:bg-charcoal-900 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               How We Protect Your Data
             </h3>
-            <ul className="space-y-3 text-charcoal-600 dark:text-cream-300">
+            <ul className="space-y-3 text-charcoal-600 dark:text-cream-100-300">
               <li className="flex items-start">
                 <Shield className="w-5 h-5 text-accent mr-3 mt-1 flex-shrink-0" />
                 <span>All data is encrypted in transit (TLS 1.3) and at rest (AES-256)</span>
@@ -189,10 +189,10 @@ export function Trust() {
       <Section className="py-16">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Your Rights & Ownership
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 max-w-2xl mx-auto">
               You maintain complete control and ownership of your content
             </p>
           </div>
@@ -204,10 +204,10 @@ export function Trust() {
                 className="bg-white dark:bg-charcoal-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-accent/20"
               >
                 <right.icon className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-lg font-bold font-display mb-2 text-primary dark:text-cream">
+                <h3 className="text-lg font-bold font-display mb-2 text-primary dark:text-cream-100">
                   {right.title}
                 </h3>
-                <p className="text-sm text-charcoal-600 dark:text-cream-300">
+                <p className="text-sm text-charcoal-600 dark:text-cream-100-300">
                   {right.description}
                 </p>
               </div>
@@ -215,15 +215,15 @@ export function Trust() {
           </div>
 
           <div className="bg-accent/10 dark:bg-accent/5 rounded-2xl p-8 max-w-4xl mx-auto border border-accent/30">
-            <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               100% Content Ownership
             </h3>
-            <p className="text-charcoal-600 dark:text-cream-300 mb-4 leading-relaxed">
+            <p className="text-charcoal-600 dark:text-cream-100-300 mb-4 leading-relaxed">
               You retain full ownership of all photos, videos, and content you upload. We never claim
               rights to your memories, never sell your data to third parties, and never use your content
               for AI training without explicit permission.
             </p>
-            <p className="text-charcoal-600 dark:text-cream-300 leading-relaxed">
+            <p className="text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
               When you delete content or close your account, it's permanently removed from our systems
               within 30 days, including all backups.
             </p>
@@ -234,10 +234,10 @@ export function Trust() {
       <Section className="py-16 bg-primary/5 dark:bg-primary/10">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold font-display mb-6 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-6 text-primary dark:text-cream-100">
               Still Have Questions?
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 mb-8">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 mb-8">
               Our team is here to address any privacy or security concerns you may have.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -249,7 +249,7 @@ export function Trust() {
               </a>
               <a
                 href="#"
-                className="px-8 py-4 bg-white dark:bg-charcoal-900 hover:bg-cream-100 dark:hover:bg-charcoal-800 text-primary dark:text-cream rounded-lg font-semibold transition-colors duration-300 border border-primary/20"
+                className="px-8 py-4 bg-white dark:bg-charcoal-900 hover:bg-cream-100 dark:hover:bg-charcoal-800 text-primary dark:text-cream-100 rounded-lg font-semibold transition-colors duration-300 border border-primary/20"
               >
                 Read Full Privacy Policy
               </a>

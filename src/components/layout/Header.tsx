@@ -8,9 +8,9 @@ import { scrollToSection } from '../../lib/utils';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const navLinks = [
+  { name: 'Home', href: '/', isSection: false },
   { name: 'Products', href: 'products', isSection: true },
   { name: 'Trust', href: '/trust', isSection: false },
-  { name: 'For Partners', href: '/partners', isSection: false },
   { name: 'About', href: '/about', isSection: false },
   { name: 'Contact', href: '/contact', isSection: false },
 ];
@@ -43,6 +43,19 @@ export function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const handleHomeClick = () => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const isOverHero = location.pathname === '/' && !isScrolled;
+  const navLinkClass = isOverHero
+    ? 'text-hero-muted hover:text-cream-200 transition-colors font-medium'
+    : 'text-charcoal-700 dark:text-cream-200 hover:text-primary dark:hover:text-accent transition-colors font-medium';
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -55,19 +68,27 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img
-              src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo.png'}
+              src={isOverHero || theme === 'dark' ? '/maple_oak_digital_darkmode_.png' : '/mapleoakdigitallogo.png'}
               alt="Maple Oak Digital"
               className="h-12 w-auto transition-opacity duration-300"
             />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              link.isSection ? (
+            {navLinks.map((link) =>
+              link.name === 'Home' ? (
+                <button
+                  key={link.name}
+                  onClick={handleHomeClick}
+                  className={navLinkClass}
+                >
+                  {link.name}
+                </button>
+              ) : link.isSection ? (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link)}
-                  className="text-charcoal-700 dark:text-cream-200 hover:text-primary dark:hover:text-accent transition-colors font-medium"
+                  className={navLinkClass}
                 >
                   {link.name}
                 </button>
@@ -75,26 +96,30 @@ export function Header() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-charcoal-700 dark:text-cream-200 hover:text-primary dark:hover:text-accent transition-colors font-medium"
+                  className={navLinkClass}
                 >
                   {link.name}
                 </Link>
               )
-            ))}
+            )}
           </div>
 
           <div className="flex items-center space-x-4">
             <DarkModeToggle />
 
             <div className="hidden md:block">
-              <Button size="sm" onClick={() => navigate('/contact')}>
+              <Button
+                size="sm"
+                onClick={() => navigate('/contact')}
+                className={isOverHero ? '!bg-hero-button-green !text-cream-100 hover:!bg-forest-700 !border-0' : ''}
+              >
                 Get Started
               </Button>
             </div>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-charcoal-100 dark:hover:bg-charcoal-800 transition-colors"
+              className={`md:hidden p-2 rounded-lg transition-colors ${isOverHero ? 'text-hero-muted hover:bg-white/10' : 'hover:bg-charcoal-100 dark:hover:bg-charcoal-800'}`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -117,8 +142,16 @@ export function Header() {
             className="md:hidden bg-white dark:bg-charcoal-950 border-t border-charcoal-200 dark:border-charcoal-800"
           >
             <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
-                link.isSection ? (
+              {navLinks.map((link) =>
+                link.name === 'Home' ? (
+                  <button
+                    key={link.name}
+                    onClick={handleHomeClick}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-charcoal-700 dark:text-cream-200 hover:bg-forest-50 dark:hover:bg-charcoal-800 transition-colors font-medium"
+                  >
+                    {link.name}
+                  </button>
+                ) : link.isSection ? (
                   <button
                     key={link.name}
                     onClick={() => handleNavClick(link)}
@@ -136,7 +169,7 @@ export function Header() {
                     {link.name}
                   </Link>
                 )
-              ))}
+              )}
               <Button
                 className="w-full"
                 onClick={() => {

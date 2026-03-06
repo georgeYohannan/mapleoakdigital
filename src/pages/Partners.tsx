@@ -74,10 +74,10 @@ export function Partners() {
       <Section className="pt-32 pb-16 hero-gradient dark:hero-gradient-dark">
         <Container>
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 text-primary dark:text-cream">
+            <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 text-primary dark:text-cream-100">
               For Partners
             </h1>
-            <p className="text-xl text-charcoal-600 dark:text-cream-300 leading-relaxed">
+            <p className="text-xl text-charcoal-600 dark:text-cream-100-300 leading-relaxed">
               Join us in transforming how families preserve and celebrate cherished memories.
               Together, we can bring innovation with heart to more communities.
             </p>
@@ -88,10 +88,10 @@ export function Partners() {
       <Section className="py-16">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Partnership Models
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 max-w-2xl mx-auto">
               Flexible partnership options designed for your business
             </p>
           </div>
@@ -109,17 +109,17 @@ export function Partners() {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream">
+                    <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream-100">
                       {model.title}
                     </h3>
-                    <p className="text-charcoal-600 dark:text-cream-300 mb-6 leading-relaxed">
+                    <p className="text-charcoal-600 dark:text-cream-100-300 mb-6 leading-relaxed">
                       {model.description}
                     </p>
                     <ul className="space-y-2">
                       {model.features.map((feature) => (
                         <li key={feature} className="flex items-start">
                           <Zap className="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-charcoal-600 dark:text-cream-300">{feature}</span>
+                          <span className="text-charcoal-600 dark:text-cream-100-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -134,10 +134,10 @@ export function Partners() {
       <Section className="py-16 bg-primary/5 dark:bg-primary/10">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Benefits for Partners
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 max-w-2xl mx-auto">
               Everything you need to succeed with Maple Oak Digital
             </p>
           </div>
@@ -149,10 +149,10 @@ export function Partners() {
                 className="bg-white dark:bg-charcoal-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <benefit.icon className="w-12 h-12 text-accent mb-4" />
-                <h3 className="text-xl font-bold font-display mb-2 text-primary dark:text-cream">
+                <h3 className="text-xl font-bold font-display mb-2 text-primary dark:text-cream-100">
                   {benefit.title}
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300">
+                <p className="text-charcoal-600 dark:text-cream-100-300">
                   {benefit.description}
                 </p>
               </div>
@@ -165,10 +165,10 @@ export function Partners() {
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream">
+              <h2 className="text-4xl font-bold font-display mb-4 text-primary dark:text-cream-100">
                 Integration & Support
               </h2>
-              <p className="text-lg text-charcoal-600 dark:text-cream-300">
+              <p className="text-lg text-charcoal-600 dark:text-cream-100-300">
                 Simple implementation with ongoing support
               </p>
             </div>
@@ -176,14 +176,14 @@ export function Partners() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-xl shadow-lg">
                 <Code className="w-12 h-12 text-accent mb-4" />
-                <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream">
+                <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream-100">
                   Developer Friendly
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 mb-4">
+                <p className="text-charcoal-600 dark:text-cream-100-300 mb-4">
                   RESTful API with SDKs for major platforms. Comprehensive documentation,
                   code samples, and sandbox environment for testing.
                 </p>
-                <ul className="space-y-2 text-sm text-charcoal-600 dark:text-cream-300">
+                <ul className="space-y-2 text-sm text-charcoal-600 dark:text-cream-100-300">
                   <li>• OpenAPI/Swagger documentation</li>
                   <li>• Webhooks for real-time updates</li>
                   <li>• Rate limiting and monitoring</li>
@@ -193,14 +193,14 @@ export function Partners() {
 
               <div className="bg-white dark:bg-charcoal-900 p-8 rounded-xl shadow-lg">
                 <HeadphonesIcon className="w-12 h-12 text-accent mb-4" />
-                <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream">
+                <h3 className="text-2xl font-bold font-display mb-3 text-primary dark:text-cream-100">
                   Dedicated Support
                 </h3>
-                <p className="text-charcoal-600 dark:text-cream-300 mb-4">
+                <p className="text-charcoal-600 dark:text-cream-100-300 mb-4">
                   Your success is our priority. Every partner gets access to dedicated
                   technical support and account management.
                 </p>
-                <ul className="space-y-2 text-sm text-charcoal-600 dark:text-cream-300">
+                <ul className="space-y-2 text-sm text-charcoal-600 dark:text-cream-100-300">
                   <li>• 24/7 technical support via email</li>
                   <li>• Dedicated Slack channel</li>
                   <li>• Quarterly business reviews</li>
@@ -210,10 +210,10 @@ export function Partners() {
             </div>
 
             <div className="bg-accent/10 dark:bg-accent/5 rounded-2xl p-8 border border-accent/30">
-              <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream text-center">
+              <h3 className="text-2xl font-bold font-display mb-4 text-primary dark:text-cream-100 text-center">
                 Ready to Partner With Us?
               </h3>
-              <p className="text-charcoal-600 dark:text-cream-300 mb-6 text-center max-w-2xl mx-auto">
+              <p className="text-charcoal-600 dark:text-cream-100-300 mb-6 text-center max-w-2xl mx-auto">
                 Let's discuss how Maple Oak Digital can enhance your services and create
                 value for your customers.
               </p>
@@ -226,7 +226,7 @@ export function Partners() {
                 </a>
                 <a
                   href="#"
-                  className="px-8 py-4 bg-white dark:bg-charcoal-900 hover:bg-cream-100 dark:hover:bg-charcoal-800 text-primary dark:text-cream rounded-lg font-semibold transition-colors duration-300 border border-primary/20 text-center"
+                  className="px-8 py-4 bg-white dark:bg-charcoal-900 hover:bg-cream-100 dark:hover:bg-charcoal-800 text-primary dark:text-cream-100 rounded-lg font-semibold transition-colors duration-300 border border-primary/20 text-center"
                 >
                   View API Documentation
                 </a>
@@ -240,14 +240,14 @@ export function Partners() {
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <Handshake className="w-16 h-16 text-accent mx-auto mb-6" />
-            <h2 className="text-3xl font-bold font-display mb-4 text-primary dark:text-cream">
+            <h2 className="text-3xl font-bold font-display mb-4 text-primary dark:text-cream-100">
               Join Our Growing Partner Network
             </h2>
-            <p className="text-lg text-charcoal-600 dark:text-cream-300 mb-8">
+            <p className="text-lg text-charcoal-600 dark:text-cream-100-300 mb-8">
               Trusted by funeral homes, senior living facilities, and technology platforms
               across North America and beyond.
             </p>
-            <div className="flex flex-wrap justify-center gap-8 text-charcoal-600 dark:text-cream-300">
+            <div className="flex flex-wrap justify-center gap-8 text-charcoal-600 dark:text-cream-100-300">
               <div className="text-center">
                 <div className="text-4xl font-bold text-accent mb-2">150+</div>
                 <div className="text-sm">Partner Organizations</div>

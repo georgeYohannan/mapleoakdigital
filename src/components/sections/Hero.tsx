@@ -51,7 +51,7 @@ export function Hero() {
           className="space-y-8"
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-display font-bold text-primary dark:text-cream"
+            className="text-5xl md:text-7xl font-display font-bold text-primary dark:text-cream-100"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
