@@ -58,7 +58,7 @@ export function Contact() {
   };
 
   return (
-    <Section id="contact" className="bg-gradient-to-b from-cream-50 to-cream-100 dark:from-charcoal-950 dark:to-charcoal-900">
+    <Section id="contact" className="bg-gradient-to-b from-cream-50 to-cream-100 dark:from-charcoal-950 dark:to-charcoal-900 pt-32">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

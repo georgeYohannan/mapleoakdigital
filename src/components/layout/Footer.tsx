@@ -7,7 +7,6 @@ const footerLinks = {
   products: [
     { name: 'Memorial Video Generator', href: 'demo', isSection: true },
     { name: 'Digital Avatars', href: 'products', isSection: true },
-    { name: 'How It Works', href: 'how-it-works', isSection: true },
   ],
   company: [
     { name: 'About Us', href: '/about', isSection: false },
@@ -58,7 +57,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center mb-4">
               <img
-                src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo-light.png'}
+                src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo.png'}
                 alt="Maple Oak Digital"
                 className="h-12 w-auto transition-opacity duration-300"
               />

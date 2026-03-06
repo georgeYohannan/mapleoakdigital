@@ -9,8 +9,8 @@ import { useTheme } from '../../contexts/ThemeContext';
 
 const navLinks = [
   { name: 'Products', href: 'products', isSection: true },
-  { name: 'How It Works', href: 'how-it-works', isSection: true },
   { name: 'Trust', href: '/trust', isSection: false },
+  { name: 'For Partners', href: '/partners', isSection: false },
   { name: 'About', href: '/about', isSection: false },
   { name: 'Contact', href: '/contact', isSection: false },
 ];
@@ -55,7 +55,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img
-              src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo-light.png'}
+              src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo.png'}
               alt="Maple Oak Digital"
               className="h-12 w-auto transition-opacity duration-300"
             />
