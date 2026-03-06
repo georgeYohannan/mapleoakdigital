@@ -1,23 +1,26 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DarkModeToggle } from '../ui/DarkModeToggle';
 import { Button } from '../common/Button';
 import { scrollToSection } from '../../lib/utils';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const navLinks = [
-  { name: 'Home', href: 'hero' },
-  { name: 'Products', href: 'products' },
-  { name: 'Demo', href: 'demo' },
-  { name: 'How It Works', href: 'how-it-works' },
-  { name: 'Contact', href: 'contact' },
+  { name: 'Products', href: 'products', isSection: true },
+  { name: 'How It Works', href: 'how-it-works', isSection: true },
+  { name: 'Trust', href: '/trust', isSection: false },
+  { name: 'About', href: '/about', isSection: false },
+  { name: 'Contact', href: '/contact', isSection: false },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +31,15 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    scrollToSection(href);
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    if (link.isSection) {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => scrollToSection(link.href), 100);
+      } else {
+        scrollToSection(link.href);
+      }
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -43,23 +53,33 @@ export function Header() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
-              src={theme === 'dark' ? '/maple_oak_digital_darkmode_.png' : '/untitled_design.png'}
-              alt="MapleOakDigital"
-              className="h-16 w-auto transition-opacity duration-300"
+              src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo-light.png'}
+              alt="Maple Oak Digital"
+              className="h-12 w-auto transition-opacity duration-300"
             />
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => handleNavClick(link.href)}
-                className="text-charcoal-700 dark:text-cream-200 hover:text-forest-600 dark:hover:text-forest-400 transition-colors font-medium"
-              >
-                {link.name}
-              </button>
+              link.isSection ? (
+                <button
+                  key={link.name}
+                  onClick={() => handleNavClick(link)}
+                  className="text-charcoal-700 dark:text-cream-200 hover:text-primary dark:hover:text-accent transition-colors font-medium"
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-charcoal-700 dark:text-cream-200 hover:text-primary dark:hover:text-accent transition-colors font-medium"
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </div>
 
@@ -67,7 +87,7 @@ export function Header() {
             <DarkModeToggle />
 
             <div className="hidden md:block">
-              <Button size="sm" onClick={() => scrollToSection('contact')}>
+              <Button size="sm" onClick={() => navigate('/contact')}>
                 Get Started
               </Button>
             </div>
@@ -98,18 +118,30 @@ export function Header() {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavClick(link.href)}
-                  className="block w-full text-left px-4 py-3 rounded-lg text-charcoal-700 dark:text-cream-200 hover:bg-forest-50 dark:hover:bg-charcoal-800 transition-colors font-medium"
-                >
-                  {link.name}
-                </button>
+                link.isSection ? (
+                  <button
+                    key={link.name}
+                    onClick={() => handleNavClick(link)}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-charcoal-700 dark:text-cream-200 hover:bg-forest-50 dark:hover:bg-charcoal-800 transition-colors font-medium"
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-charcoal-700 dark:text-cream-200 hover:bg-forest-50 dark:hover:bg-charcoal-800 transition-colors font-medium"
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
               <Button
                 className="w-full"
                 onClick={() => {
-                  handleNavClick('contact');
+                  navigate('/contact');
+                  setIsMobileMenuOpen(false);
                 }}
               >
                 Get Started

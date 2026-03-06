@@ -5,6 +5,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: '#1a4231',
+        accent: '#d4a574',
+        cream: '#F8F6F3',
+        'background-light': '#f6f8f7',
+        'background-dark': '#151d1a',
         forest: {
           50: '#f0f7f4',
           100: '#dceee5',
@@ -72,7 +77,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       animation: {

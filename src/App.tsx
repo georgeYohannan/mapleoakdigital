@@ -1,26 +1,29 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { Hero } from './components/sections/Hero';
-import { Products } from './components/sections/Products';
-import { Demo } from './components/sections/Demo';
-import { HowItWorks } from './components/sections/HowItWorks';
+import { Home } from './pages/Home';
+import { Trust } from './pages/Trust';
+import { Partners } from './pages/Partners';
+import { About } from './pages/About';
 import { Contact } from './components/sections/Contact';
-import { Newsletter } from './components/sections/Newsletter';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <Products />
-        <Demo />
-        <HowItWorks />
-        <Contact />
-        <Newsletter />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/trust" element={<Trust />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

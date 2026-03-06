@@ -1,23 +1,24 @@
 import { Heart, Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { scrollToSection } from '../../lib/utils';
 import { useTheme } from '../../contexts/ThemeContext';
 
 const footerLinks = {
   products: [
-    { name: 'Memorial Video Generator', href: 'demo' },
-    { name: 'Digital Avatars', href: 'products' },
-    { name: 'How It Works', href: 'how-it-works' },
+    { name: 'Memorial Video Generator', href: 'demo', isSection: true },
+    { name: 'Digital Avatars', href: 'products', isSection: true },
+    { name: 'How It Works', href: 'how-it-works', isSection: true },
   ],
   company: [
-    { name: 'About Us', href: 'hero' },
-    { name: 'Contact', href: 'contact' },
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
+    { name: 'About Us', href: '/about', isSection: false },
+    { name: 'Trust & Ethics', href: '/trust', isSection: false },
+    { name: 'For Partners', href: '/partners', isSection: false },
+    { name: 'Contact', href: '/contact', isSection: false },
   ],
   support: [
-    { name: 'FAQ', href: '#' },
-    { name: 'Help Center', href: '#' },
-    { name: 'Beta Program', href: 'contact' },
+    { name: 'FAQ', href: '#', isSection: false },
+    { name: 'Help Center', href: '#', isSection: false },
+    { name: 'Privacy Policy', href: '#', isSection: false },
   ],
 };
 
@@ -31,12 +32,23 @@ const socialLinks = [
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const { theme } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleLinkClick = (href: string) => {
-    if (href.startsWith('#')) {
+  const handleLinkClick = (link: { href: string; isSection: boolean }) => {
+    if (link.href.startsWith('#')) {
       return;
     }
-    scrollToSection(href);
+    if (link.isSection) {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => scrollToSection(link.href), 100);
+      } else {
+        scrollToSection(link.href);
+      }
+    } else {
+      navigate(link.href);
+    }
   };
 
   return (
@@ -44,13 +56,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-4">
+            <Link to="/" className="flex items-center mb-4">
               <img
-                src={theme === 'dark' ? '/maple_oak_digital_darkmode_.png' : '/untitled_design.png'}
-                alt="MapleOakDigital"
-                className="h-14 w-auto transition-opacity duration-300"
+                src={theme === 'dark' ? '/MAPLE_OAK_DIGITAL_darkmode_.png' : '/mapleoakdigitallogo-light.png'}
+                alt="Maple Oak Digital"
+                className="h-12 w-auto transition-opacity duration-300"
               />
-            </div>
+            </Link>
             <p className="text-cream-300 mb-6 max-w-md">
               Transforming cherished memories into timeless tributes with the power of AI.
               Innovation with Heart.
@@ -79,8 +91,8 @@ export function Footer() {
               {footerLinks.products.map((link) => (
                 <li key={link.name}>
                   <button
-                    onClick={() => handleLinkClick(link.href)}
-                    className="text-cream-300 hover:text-forest-400 transition-colors"
+                    onClick={() => handleLinkClick(link)}
+                    className="text-cream-300 hover:text-accent transition-colors"
                   >
                     {link.name}
                   </button>
@@ -95,8 +107,8 @@ export function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <button
-                    onClick={() => handleLinkClick(link.href)}
-                    className="text-cream-300 hover:text-forest-400 transition-colors"
+                    onClick={() => handleLinkClick(link)}
+                    className="text-cream-300 hover:text-accent transition-colors"
                   >
                     {link.name}
                   </button>
@@ -111,8 +123,8 @@ export function Footer() {
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <button
-                    onClick={() => handleLinkClick(link.href)}
-                    className="text-cream-300 hover:text-forest-400 transition-colors"
+                    onClick={() => handleLinkClick(link)}
+                    className="text-cream-300 hover:text-accent transition-colors"
                   >
                     {link.name}
                   </button>

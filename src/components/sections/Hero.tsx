@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-forest-50 via-cream-100 to-amber-50 dark:from-charcoal-950 dark:via-charcoal-900 dark:to-forest-950"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient dark:hero-gradient-dark"
     >
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -51,14 +51,14 @@ export function Hero() {
           className="space-y-8"
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-serif font-bold text-charcoal-950 dark:text-cream-100"
+            className="text-5xl md:text-7xl font-display font-bold text-primary dark:text-cream"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             Transform Memories
             <br />
-            <span className="bg-gradient-to-r from-forest-600 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Into Timeless Tributes
             </span>
           </motion.h1>
