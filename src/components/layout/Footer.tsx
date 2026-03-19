@@ -68,18 +68,18 @@ export function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:contact@mapleoakdigital.com"
+                href="mailto:hello@mapleoakdigital.com"
                 className="flex items-center gap-2 text-cream-300 hover:text-forest-400 transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                <span>contact@mapleoakdigital.com</span>
+                <span>hello@mapleoakdigital.com</span>
               </a>
               <a
                 href="tel:+1-555-0123"
                 className="flex items-center gap-2 text-cream-300 hover:text-forest-400 transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                <span>+1 (555) 012-3456</span>
+                <span>+1 (714) 244-7383</span>
               </a>
             </div>
           </div>

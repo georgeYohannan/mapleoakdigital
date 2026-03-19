@@ -53,14 +53,9 @@ const supportCards = [
 
 const offices = [
   {
-    name: 'HQ Silicon Valley',
-    location: 'PALO ALTO, CA',
-    hours: '09:00 AM - 05:00 PM PST',
-  },
-  {
-    name: 'INTL Toronto',
-    location: 'ONTARIO, CANADA',
-    hours: '09:00 AM - 05:00 PM EST',
+    name: 'Maple Oak Digital',
+    location: '8 THE GREEN, SUITE# 25727, DOVER, DE 19901',
+    hours: '(714) 244-7383',
   },
 ];
 

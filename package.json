@@ -8,7 +8,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "test:assets": "node scripts/test-assets.mjs",
+    "test:contact": "node --env-file-if-exists=.env scripts/test-contact-function.mjs",
+    "test:smoke": "npm run test:assets && npm run test:contact",
+    "dev:clean": "sh scripts/dev-clean.sh",
+    "test:clean": "sh scripts/test-clean.sh"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

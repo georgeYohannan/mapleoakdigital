@@ -76,7 +76,7 @@ Place your logo files in the **`public/`** folder:
 | Mode   | File name (exact)                   | Where it appears |
 |--------|-------------------------------------|------------------|
 | **Light** | `mapleoakdigitallogo.png`         | Header and footer in light theme |
-| **Dark**  | `MAPLE_OAK_DIGITAL_darkmode_.png` | Header and footer in dark theme (and header over the hero) |
+| **Dark**  | `maple_oak_digital_darkmode_.png` | Header and footer in dark theme (and header over the hero) |
 
 See **`public/LOGO-PLACEMENT.md`** for step-by-step instructions. No code changes are needed—just add or replace the files and refresh.
 
@@ -181,7 +181,7 @@ The codebase is structured for easy expansion:
 
 ## Support
 
-For questions or issues, contact: contact@mapleoakdigital.com
+For questions or issues, contact: hello@mapleoakdigital.com
 
 ## License
 
